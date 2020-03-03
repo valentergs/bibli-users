@@ -1,5 +1,9 @@
 package main
 
-func main() {
+import (
+	"github.com/valentergs/bibli-users/api"
+)
 
+func main() {
+	api.Run()
 }
