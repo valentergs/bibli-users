@@ -1,14 +1,19 @@
 package controllers
 
-import "github.com/valentergs/bibli-users/api/middlewares"
+import (
+	"github.com/valentergs/bibli-users/api/middlewares"
+)
 
 func (s *Server) initializeRoutes() {
 
 	// // Home Route
 	// s.Router.HandleFunc("/", middlewares.SetMiddlewareJSON(s.Home)).Methods("GET")
 
-	// // Login Route
-	// s.Router.HandleFunc("/login", middlewares.SetMiddlewareJSON(s.Login)).Methods("POST")
+	// Login Route
+	s.Router.HandleFunc("/login", middlewares.SetMiddlewareJSON(s.Login)).Methods("POST")
+
+	// Sigin Route
+	//s.Router.HandleFunc("/signin", middlewares.SetMiddlewareJSON(s.SignIn)).Methods("POST")
 
 	//Users routes
 	s.Router.HandleFunc("/users", middlewares.SetMiddlewareJSON(s.CreateUser)).Methods("POST")
