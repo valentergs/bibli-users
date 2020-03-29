@@ -14,8 +14,8 @@ import (
 
 type User struct {
 	ID        uint32    `gorm:"primary_key;auto_increment" json:"id"`
-	FirstName string    `gorm:"size:50;not null json:"firstName"`
-	LastName  string    `gorm:"size:50;not null json:"lastName"`
+	FirstName string    `gorm:"size:50;not null" json:"firstName"`
+	LastName  string    `gorm:"size:50;not null" json:"lastName"`
 	Email     string    `gorm:"size:100;not null;unique" json:"email"`
 	Password  string    `gorm:"size:100;not null;" json:"password"`
 	Role      string    `gorm:"size:50;not null;default:user" json:"role"`
@@ -155,7 +155,7 @@ func (u *User) UpdateAUser(db *gorm.DB, uid uint32) (*User, error) {
 			"password":   u.Password,
 			"role":       u.Role,
 			"photo":      u.Photo,
-			"active": 		u.Active,
+			"active":     u.Active,
 			"updated_at": time.Now(),
 		},
 	)
